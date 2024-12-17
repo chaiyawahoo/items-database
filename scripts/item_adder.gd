@@ -49,6 +49,7 @@ func reset_form() -> void:
 
 func update_item_attribute(attribute_name: String, attribute_value: Variant) -> void:
 	item_to_add.set(attribute_name.to_snake_case(), attribute_value)
+	print("%s set to %s" % [attribute_name.to_snake_case(), str(attribute_value)])
 
 
 func _on_dropdown_selected(_index: int) -> void:

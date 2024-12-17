@@ -90,6 +90,9 @@ func create_item_from_item_query(item: Dictionary) -> Item:
 	var special_attributes: Array[Variant] = []
 	if item.Type in INFO_TABLE_NAMES:
 		db.query("SELECT %s.* FROM %s, Item WHERE %s.ItemID=Item.ID AND Item.ID=%d" % [item.Type, item.Type, item.Type, item.ID])
+		if db.query_result.size() == 0:
+			reset_db()
+			return
 		var result = db.query_result[0]
 		result.erase("ItemID")
 		for value in result.values():
@@ -114,7 +117,7 @@ func delete_item(item: Item) -> void:
 	#if item.type in INFO_TABLE_NAMES:
 		#db.delete_rows(item.type, "ItemId=%d" % item.id)
 	if item.id == Item._current_id:
-		Item._current_id -= 1
+		Item._current_id = items[-2].id
 	items.erase(item)
 
 

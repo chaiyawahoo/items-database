@@ -35,7 +35,7 @@ func add_item_button(item: Item) -> void:
 	var button := Button.new()
 	button.toggle_mode = true
 	button.button_group = item_list_button_group
-	button.text = "[%d] %s" % [item.id, item.name]
+	button.text = item.name
 	button.toggled.connect(_on_item_toggled.bind(item))
 	item_list.add_child(button)
 

@@ -24,7 +24,7 @@ func correct_value(value: String, submitted: bool=false) -> void:
 	last_text_value = value
 	if type_hint == "int":
 		correct_int_value(value)
-	if type_hint == "float":
+	elif type_hint == "float":
 		correct_float_value(value)
 	else:
 		attribute_value = value
@@ -32,16 +32,26 @@ func correct_value(value: String, submitted: bool=false) -> void:
 
 
 func correct_int_value(value: String) -> void:
-	var corrected_text: String = "%d" % int(value)
-	var corrected_int: int = int(corrected_text)
+	var corrected_text: String
+	var corrected_int: int
+	if attribute_name == "Stack Size":
+		corrected_text = "%d" % clampi(int(value), 1, INF)
+	else:
+		corrected_text = "%d" % int(value)
+	corrected_int = int(corrected_text)
 	$EditValue.text = corrected_text
 	attribute_value = corrected_int
 	value_changed.emit(attribute_name, attribute_value)
 
 
 func correct_float_value(value: String) -> void:
-	var corrected_text: String = "%.2f" % float(value)
-	var corrected_float: float = float(corrected_text)
+	var corrected_text: String
+	var corrected_float: float
+	if attribute_name == "Value" || attribute_name == "Weight":
+		corrected_text = "%.2f" % clampf(float(value), 0, INF)
+	else:
+		corrected_text = "%.2f" % float(value)
+	corrected_float = float(corrected_text)
 	$EditValue.text = corrected_text
 	attribute_value = corrected_float
 	value_changed.emit(attribute_name, attribute_value)
