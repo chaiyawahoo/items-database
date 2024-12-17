@@ -67,6 +67,8 @@ func initialize_db() -> void:
 func reset_db() -> void:
 	drop_tables()
 	create_tables()
+	items = []
+	Item._current_id = 0
 	
 	for item in default_items:
 		var item_instance: Item = create_item_from_array(item)

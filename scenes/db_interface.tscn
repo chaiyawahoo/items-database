@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://37qcpju28jqa"]
 
-[ext_resource type="Script" path="res://scripts/db_interface.gd" id="1_lrqj4"]
-[ext_resource type="PackedScene" uid="uid://bphxugwrh145v" path="res://scenes/item_adder.tscn" id="3_vr6p1"]
+[ext_resource type="Script" path="res://scripts/db_interface.gd" id="1_jynh2"]
+[ext_resource type="PackedScene" uid="uid://bphxugwrh145v" path="res://scenes/item_adder.tscn" id="2_06vhc"]
 
 [node name="DBInterface" type="Control"]
 layout_mode = 3
@@ -10,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_lrqj4")
+script = ExtResource("1_jynh2")
 
 [node name="TitlePanel" type="Panel" parent="."]
 layout_mode = 0
@@ -67,6 +67,22 @@ offset_bottom = -10.0
 grow_vertical = 0
 text = "New Item"
 
+[node name="ResetButton" type="Button" parent="ContentPanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -138.0
+offset_top = -41.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Reset Database"
+
 [node name="InspectPanel" type="Panel" parent="."]
 layout_mode = 0
 offset_left = 812.0
@@ -120,7 +136,7 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Delete Item"
 
-[node name="ItemAdder" parent="." instance=ExtResource("3_vr6p1")]
+[node name="ItemAdder" parent="." instance=ExtResource("2_06vhc")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
