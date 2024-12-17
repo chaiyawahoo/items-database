@@ -1,0 +1,126 @@
+[gd_scene load_steps=3 format=3 uid="uid://37qcpju28jqa"]
+
+[ext_resource type="Script" path="res://scripts/db_interface.gd" id="1_lrqj4"]
+[ext_resource type="PackedScene" uid="uid://bphxugwrh145v" path="res://scenes/item_adder.tscn" id="3_vr6p1"]
+
+[node name="DBInterface" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lrqj4")
+
+[node name="TitlePanel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 812.0
+offset_bottom = 48.0
+
+[node name="HSeparator" type="HSeparator" parent="TitlePanel"]
+layout_mode = 0
+offset_top = 45.0
+offset_right = 812.0
+offset_bottom = 49.0
+
+[node name="TitleLabel" type="Label" parent="TitlePanel"]
+layout_mode = 2
+offset_right = 812.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "Items"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ContentPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_top = 48.0
+offset_right = 812.0
+offset_bottom = 648.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ContentPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ItemList" type="VBoxContainer" parent="ContentPanel/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="NewButton" type="Button" parent="ContentPanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -41.0
+offset_right = 93.0
+offset_bottom = -10.0
+grow_vertical = 0
+text = "New Item"
+
+[node name="InspectPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 812.0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="VSeparator" type="VSeparator" parent="InspectPanel"]
+layout_mode = 0
+offset_left = -3.0
+offset_right = 1.0
+offset_bottom = 648.0
+
+[node name="ItemName" type="RichTextLabel" parent="InspectPanel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 12.0
+offset_right = 340.0
+offset_bottom = 36.0
+bbcode_enabled = true
+scroll_active = false
+
+[node name="HSeparator" type="HSeparator" parent="InspectPanel"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 45.0
+offset_right = 340.0
+offset_bottom = 49.0
+
+[node name="AttributeList" type="VBoxContainer" parent="InspectPanel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 5.0
+offset_top = 49.0
+offset_right = 335.0
+offset_bottom = 648.0
+
+[node name="DeleteButton" type="Button" parent="InspectPanel"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -49.5
+offset_top = -41.0
+offset_right = 49.5
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Delete Item"
+
+[node name="ItemAdder" parent="." instance=ExtResource("3_vr6p1")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
