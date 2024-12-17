@@ -27,7 +27,7 @@ func correct_value(value: String, submitted: bool=false) -> void:
 	elif type_hint == "float":
 		correct_float_value(value)
 	else:
-		attribute_value = value
+		attribute_value = value if value != "" else " "
 		value_changed.emit(attribute_name, attribute_value)
 
 
@@ -35,7 +35,7 @@ func correct_int_value(value: String) -> void:
 	var corrected_text: String
 	var corrected_int: int
 	if attribute_name == "Stack Size":
-		corrected_text = "%d" % clampi(int(value), 1, INF)
+		corrected_text = "%d" % clampi(int(value), 1, 9223372036854775807) # max int
 	else:
 		corrected_text = "%d" % int(value)
 	corrected_int = int(corrected_text)
