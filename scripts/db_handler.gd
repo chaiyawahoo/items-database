@@ -2,7 +2,7 @@ extends Node
 
 var TABLE_NAMES = ["Inventory", "Item", "Weapon", "Armor", "Food", "Potion", "Trinket"]
 var INFO_TABLE_NAMES = ["Weapon", "Armor", "Food", "Potion", "Trinket"]
-var DB_PATH = "user://inventory.db"
+var DB_PATH = "./inventory.db"
 
 var default_items = [
 	# Name, Type, Value, Weight, StackSize, <Type Specific>
