@@ -27,6 +27,7 @@ func correct_value(value: String, submitted: bool=false) -> void:
 	elif type_hint == "float":
 		correct_float_value(value)
 	else:
+		value = value.strip_edges()
 		attribute_value = value if value != "" else " "
 		value_changed.emit(attribute_name, attribute_value)
 
