@@ -81,4 +81,5 @@ func _on_new_button_pressed() -> void:
 
 func _on_reset_button_pressed() -> void:
 	DBHandler.reset_db()
+	_on_item_deselected()
 	refresh_items()
